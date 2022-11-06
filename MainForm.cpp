@@ -8,13 +8,12 @@
 //#include "Debug.h"
 
 //---------------------------------------------------------------------------
-//#pragma package(smart_init)
+#pragma package(smart_init)
 #pragma resource "*.dfm"
 TGameForm *GameForm;
 //---------------------------------------------------------------------------
 __fastcall TGameForm::TGameForm(TComponent* Owner) : TForm(Owner)
 {
-
    FontEdit->Dialog->Font=GameForm->Font;
 	Daytime = morning;
    map = NULL;
@@ -72,19 +71,19 @@ void __fastcall TGameForm::ActionBoxClick(TObject *Sender)
 {
 	if (actions < 5)
    {
-	  if (actions == 2)
+      if (actions == 2)
 		{
 			NStartClick(NULL);
          ActionBox->Items->Strings[0]="Осмотреться";
-		 ActionBox->Items->Add("Идти на север");
-		 ActionBox->Items->Add("Идти на восток");
-		 ActionBox->Items->Add("Идти на юг");
+         ActionBox->Items->Add("Идти на север");
+         ActionBox->Items->Add("Идти на восток");
+         ActionBox->Items->Add("Идти на юг");
 			ActionBox->Items->Add("Идти на запад");
 			//ActionBox->Items->Add("Охотиться");
 			NStart->Enabled = true;
-		 int ori=0;
+         int ori=0;
          for (int i=0; i<Orientire.Count; ++i)
-		 {
+         {
             if (Orientire.Available[i] == true)
 					ori++;
 			}

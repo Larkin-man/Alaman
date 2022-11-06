@@ -21,7 +21,6 @@
 #include <Grids.hpp>
 #include <ValEdit.hpp>
 #include <inifiles.hpp>
-#include <System.Actions.hpp>
 //---------------------------------------------------------------------------
 PLAYER Player;
 MAPS Maps;

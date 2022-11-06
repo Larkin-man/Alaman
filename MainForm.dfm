@@ -39,6 +39,8 @@ object GameForm: TGameForm
     Caption = 'PanelStatus'
     Color = clInactiveCaptionText
     TabOrder = 0
+    ExplicitLeft = 446
+    ExplicitHeight = 393
     object PageControl1: TPageControl
       Left = 0
       Top = 0
@@ -51,8 +53,10 @@ object GameForm: TGameForm
       MultiLine = True
       ParentBiDiMode = False
       TabOrder = 0
+      ExplicitHeight = 393
       object TabSheet1: TTabSheet
         Caption = #1057#1086#1089#1090#1086#1103#1085#1080#1077
+        ExplicitHeight = 302
         object StatusBox: TListBox
           Left = 0
           Top = 0
@@ -65,11 +69,13 @@ object GameForm: TGameForm
           ItemHeight = 19
           TabOrder = 0
           OnClick = StatusBoxClick
+          ExplicitHeight = 285
         end
       end
       object TabSheet2: TTabSheet
         Caption = #1055#1088#1077#1076#1084#1077#1090#1099
         ImageIndex = 1
+        ExplicitHeight = 302
         object ItemsBox: TListBox
           Left = 0
           Top = 0
@@ -80,11 +86,13 @@ object GameForm: TGameForm
           Color = clBtnFace
           ItemHeight = 19
           TabOrder = 0
+          ExplicitHeight = 302
         end
       end
       object ListQuest: TTabSheet
         Caption = #1046#1091#1088#1085#1072#1083
         ImageIndex = 2
+        ExplicitHeight = 302
         object JournalBox: TListBox
           Left = 0
           Top = 0
@@ -109,6 +117,8 @@ object GameForm: TGameForm
     BevelOuter = bvNone
     Caption = 'PanelLeft'
     TabOrder = 1
+    ExplicitWidth = 443
+    ExplicitHeight = 393
     object Splitter1: TSplitter
       Left = 0
       Top = 303
@@ -159,6 +169,9 @@ object GameForm: TGameForm
         TabOrder = 0
         OnClick = ActionBoxClick
         OnKeyDown = FormKeyDown
+        ExplicitTop = 2
+        ExplicitWidth = 338
+        ExplicitHeight = 123
       end
       object Panel1: TPanel
         Left = 340
@@ -169,6 +182,8 @@ object GameForm: TGameForm
         BevelOuter = bvNone
         Caption = 'Panel1'
         TabOrder = 1
+        ExplicitLeft = 342
+        ExplicitHeight = 124
         object TimeBox: TMemo
           Left = 0
           Top = 0
@@ -192,6 +207,7 @@ object GameForm: TGameForm
             #1059#1090#1088#1086)
           ParentFont = False
           TabOrder = 0
+          ExplicitHeight = 124
         end
       end
     end
@@ -204,6 +220,8 @@ object GameForm: TGameForm
       Caption = 'PanelGame'
       Color = clInactiveCaptionText
       TabOrder = 1
+      ExplicitWidth = 443
+      ExplicitHeight = 264
       object Out: TRichEdit
         Left = 1
         Top = 1
@@ -220,6 +238,7 @@ object GameForm: TGameForm
         Font.Style = []
         ParentFont = False
         TabOrder = 0
+        ExplicitHeight = 267
       end
     end
   end
@@ -262,7 +281,7 @@ object GameForm: TGameForm
     Left = 376
     Top = 16
     Bitmap = {
-      494C010103000900080018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
+      494C010103000900040018001800FFFFFFFFFF10FFFFFFFFFFFFFFFF424D3600
       0000000000003600000028000000600000001800000001002000000000000024
       000000000000000000000000000000000000000000000000000000000000F7F6
       F6007871700095918F0000000000000000000000000000000000B0AEE0008C8A
