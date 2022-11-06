@@ -1,74 +1,82 @@
 //---------------------------------------------------------------------------
-
 #ifndef GDataH
 #define GDataH
 #include "TableLoader.cpp"
 //---------------------------------------------------------------------------
 #define cletka 40
 
-static class PLAYER
+class PLAYER
 {
 public:
    PLAYER() {Traveling=true;}
    bool Traveling;
 
-} Player;
+}extern Player;
 
-static class MAPS
+class MAPS
 {
 public:
-   AnsiString  *Name;
-   char        *Id;
-   AnsiString  *Where;
-   AnsiString  *Dp;
+	String  *Name;
+	Char        *Id;
+	String  *Where;
+	String  *Dp;
    int         *Duration;
    int Count;
    int Bug, Out; //Индекс неверной локации (0) и края мира (пробел)
    TableLoader File;
-} Maps;
+}extern Maps;
 
-static class DISTANCE
+class DISTANCE
 {
 public:
-   AnsiString  *Name;
+   String  *Name;
    int *Min;
    int *Max;
    int Count;
    TableLoader File;
-} Dist;
+}extern Dist;
 
-static class AROUND
+class AROUND
 {
 public:
-   AnsiString  *Name;
+   String  *Name;
    int *ID;
-   AnsiString  *To;
+   String  *To;
    int Count;
    TableLoader File;
-} Around;
+}extern Around;
 
-static class ACTIONS
+class ACTIONS
 {
 public:
-   AnsiString  *Id;
-   AnsiString  *Text;
-   int Count;
-   TableLoader File;
-} Action;
+	String  *Id;
+	String  *Text;
+	int Count;
+	TableLoader File;
+}extern Action;
 
-static class ORIENTIRS
+class ORIENTIRS
 { public:
-   AnsiString  *Name;
+   String  *Name;
    int *x;
    int *y;
-   AnsiString  *DP;
+   String  *DP;
    bool *Available;
    int *JournalPos;
    int Count;
    TableLoader File;
-} Orientire;
+}extern Orientire;
 
-static void LOADTXTS()
+class TIMING
+{
+public:
+	String  *Text;
+		int *Time;
+	int Count;
+	TableLoader File;
+}extern Timing;
+
+void LOADTXTS()
 {
    Maps.Count = Maps.File.LoadFromFile("Data\\MAPS.TXT","scssi\0", &Maps.Name, &Maps.Id, &Maps.Where, &Maps.Dp, &Maps.Duration);
    Dist.Count = Dist.File.LoadFromFile("Data\\DISTANCE.TXT","sii\0", &Dist.Name, &Dist.Min, &Dist.Max);
@@ -78,10 +86,11 @@ static void LOADTXTS()
       if (Maps.Id[i] == ' ')
          Maps.Out = i;
       if (Maps.Id[i] == '0')
-         Maps.Bug = i;
-   }
-   Action.Count = Action.File.LoadFromFile("Data\\ACTIONS.TXT","ss\0", &Action.Id, &Action.Text);
-   Orientire.Count = Orientire.File.LoadFromFile("Data\\ORIENTIRS.TXT","siisbi\0", &Orientire.Name, &Orientire.x, &Orientire.y, &Orientire.DP, &Orientire.Available, &Orientire.JournalPos);
+			Maps.Bug = i;
+	}
+	Timing.Count = Timing.File.LoadFromFile("Data\\TIMING.TXT","si\0", &Timing.Text, &Timing.Time);
+	Action.Count = Action.File.LoadFromFile("Data\\ACTIONS.TXT","ss\0", &Action.Id, &Action.Text);
+	Orientire.Count = Orientire.File.LoadFromFile("Data\\ORIENTIRS.TXT","siisbi\0", &Orientire.Name, &Orientire.x, &Orientire.y, &Orientire.DP, &Orientire.Available, &Orientire.JournalPos);
 }
 
 
