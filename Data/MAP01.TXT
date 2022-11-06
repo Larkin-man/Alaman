@@ -1,0 +1,26 @@
+39 24 15 15
+fffffffffmmúmmmffffmmmmmmmmmmmmmmmmúúúú(sf
+ffsssffffmmúmmfffffmmmfffffmmmmmmmmmúúú(sm
+sssssfffffmmmffffffmmmfffffffmmmmmmmmmm(s3
+sssxsffffffffffffffffffffffffmúmmmmmmmm(s4
+wsxssffffffffffîfffffffffkkffmúmmmmmggg(s5
+wsssxfffîffffffffffffffkkkkffmmmmffgggg(s6
+wsssssffffsssssfffffsssssskffffffffgggg(s7
+wsxsssfffsssssssfffssssssssfffffffffmmm(s8
+wsssssfffssssssssffsssssssssfffîfffmmmm(s9
+sssrsssfffssssssssssssssssssfffffffffmm(fs
+sssrrrssfsssssssssssssssssssffffmmmmmmm(ff
+fsssssssssssssssssssssssssssfffmmmmmmxm(fm
+ffsssssssssssssssssssssssssfffffmmmmmmm(f3
+fffsssssssssssssfffssssssstfffffmmmmmmm(f4
+fffffsssfffsssfffffsssssssfffîfffffffmm(f5
+mfîfffffffffffffffffffffffffffffmmmffmm(f6
+mfffffffffffffffîfffffffffffffffmmfmfmf(f7
+ffffîfffmmffffffffffffffffffbbfmmffffff(f8
+mfffffmmmmmfffffmmmffffffmmmbbmmmfffffs(f9
+mmmmmmmggmmfffffmmmmfffbbmmmmmmffffssss(ms
+mmmmmg,,,mmmmmmmmmmmfffbbmmmmmmmffssssf(mf
+mmmmg,,,,ggmmmmmmfmmmmmmmmmmmmmmmfffsss(mm
+mmmmmgg,,ggmmmfffffmmúmmmmmmffmmmffffss(m3
+mmmmmmgggggmmmfffmmmúúúmmmfffffmmmmffff(m4
+******************************************
