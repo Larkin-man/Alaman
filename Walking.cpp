@@ -6,7 +6,7 @@
 #pragma hdrstop
 
 #include "Walking.h"
-AnsiString mesto(const char &sym, const int& Case=0)
+/*AnsiString mesto(const char &sym, const int& Case=0)
 {
   IF (CASE == 0)//ГДЕ В
   {
@@ -39,8 +39,9 @@ AnsiString mesto(const char &sym, const int& Case=0)
 	 }
   }
   RETURN "";
-}
+} */
 
+/*
 void openfile(const AnsiString &Filename)
    {
       file->LoadFromFile(Filename);
@@ -104,7 +105,7 @@ void openfile(const AnsiString &Filename)
          }
       }
       charmaps[TXTMAPSIDENT][file->Count-1]=0;
-   }
+   }*/
 //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
