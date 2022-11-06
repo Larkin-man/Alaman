@@ -1,18 +1,25 @@
 //---------------------------------------------------------------------------
 #ifndef WalkingH
 #define WalkingH
+#include <math.h>
+#include "GData.h"
 //---------------------------------------------------------------------------
-   static TStringList *map;
-   static int X, Y; //Координаты игрока
-   static char place;
-   static int maxX, maxY; //Размер карты
-   static int xstep,ystep;
-   static int OriIndex, Xor, Yor;
-   static int distance;
+class CHE
+{
+	public:
+	friend class TGameForm;
+	TStringList *map;
+	int X, Y; //Координаты игрока
+	Char place;
+	int maxX, maxY; //Размер карты
+	int xstep,ystep;
+	int OriIndex, Xor, Yor;
+	int distance;
    //Тайминг
-   static int timer;
-   static enum  Daily {morning =1, day =2, evening =3, night =0} Daytime;
-   static int Day, Hour, Minutes ;
+	int timer;
+	enum  Daily {morning =1, day =2, evening =3, night =0} Daytime;
+	int Day, Hour, Minutes ;
+
 
 //---------------------------------------------------------------------------
 //Wait - прибавить время (минут, часов, дней)
@@ -36,7 +43,7 @@ void Wait(const int &minutes=0, const int &hours=0, const int &days=0)
    }
 }
 //---------------------------------------------------------------------------
-AnsiString where()
+UnicodeString where()
 {
    int dx = (X - Xor);
    int dy = (Y - Yor);
@@ -51,7 +58,7 @@ AnsiString where()
 }
 //---------------------------------------------------------------------------
 //pos - По символу местности возвращает индекс местности из MAPS.txt
-int Pos(const char &ident)
+int Pos(Char &ident)
 {
    for (int i=0; i<Maps.Count; ++i)
       if (Maps.Id[i] == ident)
@@ -78,7 +85,7 @@ int GetLoc(const int &x, const int &y)
 void SetPos(const int& Xpos, const int& Ypos)
 {
    X = Xpos;
-   Y += Ypos;
+   Y = Ypos;
    place = map->Strings[Y][X]; //точно
    timer += Maps.Duration[Pos(place)];
 }
@@ -94,17 +101,17 @@ inline bool NextIsOut(const int& xstep, const int& ystep)
 }
 //---------------------------------------------------------------------------
 //Шаг в сторону
-AnsiString Step(const int& xstep, const int& ystep)
+UnicodeString Step(const int& xstep, const int& ystep)
 {
    timer = 0;
    place = map->Strings[Y][X]; //точно
-   AnsiString Mess;
+   UnicodeString Mess;
    //Края карты
    do
    {
       if(NextIsOut(xstep, ystep))
-         break;
-      char next = map->Strings[Y+ystep][X+xstep];
+			break;
+		Char next = map->Strings[Y+ystep][X+xstep];
       if (Maps.Duration[Pos(next)] == 0){   break;    } //Нельзя идти по той местности
       if (next != place)
       {
@@ -126,12 +133,12 @@ AnsiString Step(const int& xstep, const int& ystep)
 }
 //---------------------------------------------------------------------------
 //Путешествие в одну сторону, возвращает строку описания
-AnsiString Walk(const int& xstep, const int& ystep)
+UnicodeString Walk(const int& xstep, const int& ystep)
 {
    timer = 0;
    bool first = true;
    place = map->Strings[Y][X]; //точно
-   AnsiString trav;
+   UnicodeString trav;
    trav = "Вы идёте по ";
    bool walking = true;
    do
@@ -140,9 +147,9 @@ AnsiString Walk(const int& xstep, const int& ystep)
       if (((X + xstep) <= 0) || ((X + xstep) > maxX))
          break;
       if (((Y + ystep) <= 0) || ((Y + ystep) > maxY))
-         break;
+			break;
       //----------
-      char next = map->Strings[Y+ystep][X+xstep];
+		Char next = map->Strings[Y+ystep][X+xstep];
       if (Maps.Duration[Pos(next)] == 0){   break;    } //Нельзя идти по той местности                                             */
       if (next != place)      //Если собирается пройти на новый ландшавт
          if (first == true)   //В первый раз
@@ -183,7 +190,7 @@ AnsiString Walk(const int& xstep, const int& ystep)
    trav += ".";
    ////////////////////////////////
    //Вставка события из events.txt
-   
+   /*
    double xy= 1.1;
    if (Y < 10)
       xy = X + (Y/10.);
@@ -203,7 +210,7 @@ AnsiString Walk(const int& xstep, const int& ystep)
             the+=ToEvent[j];
             if (i<the)
             {
-               AnsiString EventTemp = Events->ReadString("events","ev"+IntToStr(j+1)," ");
+               UnicodeString EventTemp = Events->ReadString("events","ev"+IntToStr(j+1)," ");
                EventTemp = MessToText(EventTemp);
                trav+=" ";
                trav+= EventTemp;
@@ -211,15 +218,15 @@ AnsiString Walk(const int& xstep, const int& ystep)
             }
          }
       }
-   }  //*/
+   }  */
    ////////////////////////////////
    return trav;
 }
 //---------------------------------------------------------------------------
 //Look - Осмотреться, возвращает текст
-AnsiString Look()
+UnicodeString Look()
 {
-   AnsiString mes;
+   UnicodeString mes;
    mes = "Вы находитесь ";
    mes += Maps.Where[GetLoc(X,Y)]; //Pos(X,Y, TXTMAPSWHERE);
    mes +=", ";
@@ -255,4 +262,8 @@ void SetOrientire(int index)
    distance = sqrt(pow(double(X-Xor)*cletka,2)+pow(double(Y-Yor)*cletka,2));
 }
 //---------------------------------------------------------------------------
+} extern g;
+
+
+
 #endif
