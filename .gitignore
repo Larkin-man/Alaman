@@ -69,3 +69,6 @@ __recovery/
 modules/
 *.cgl
 MAPv0.1.psd
+Release/
+Debug/
+

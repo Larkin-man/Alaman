@@ -8,8 +8,8 @@
 class PLAYER
 {
 public:
-   PLAYER() {Traveling=true;}
-   bool Traveling;
+	PLAYER() {Traveling=true;}
+	bool Traveling;
 
 }extern Player;
 
@@ -17,33 +17,33 @@ class MAPS
 {
 public:
 	String  *Name;
-	Char        *Id;
+	Char		*Id;
 	String  *Where;
 	String  *Dp;
-   int         *Duration;
-   int Count;
-   int Bug, Out; //Индекс неверной локации (0) и края мира (пробел)
-   TableLoader File;
+	int			*Duration;
+	int Count;
+	int Bug, Out; //Индекс неверной локации (0) и края мира (пробел)
+	TableLoader File;
 }extern Maps;
 
 class DISTANCE
 {
 public:
-   String  *Name;
-   int *Min;
-   int *Max;
-   int Count;
-   TableLoader File;
+	String  *Name;
+	int *Min;
+	int *Max;
+	int Count;
+	TableLoader File;
 }extern Dist;
 
 class AROUND
 {
 public:
-   String  *Name;
-   int *ID;
-   String  *To;
-   int Count;
-   TableLoader File;
+	String  *Name;
+	int *ID;
+	String  *To;
+	int Count;
+	TableLoader File;
 }extern Around;
 
 class ACTIONS
@@ -57,14 +57,14 @@ public:
 
 class ORIENTIRS
 { public:
-   String  *Name;
-   int *x;
-   int *y;
-   String  *DP;
-   bool *Available;
-   int *JournalPos;
-   int Count;
-   TableLoader File;
+	String  *Name;
+	int *x;
+	int *y;
+	String  *DP;
+	bool *Available;
+	int *JournalPos;
+	int Count;
+	TableLoader File;
 }extern Orientire;
 
 class TIMING
@@ -78,14 +78,14 @@ public:
 
 void LOADTXTS()
 {
-   Maps.Count = Maps.File.LoadFromFile("Data\\MAPS.TXT","scssi\0", &Maps.Name, &Maps.Id, &Maps.Where, &Maps.Dp, &Maps.Duration);
-   Dist.Count = Dist.File.LoadFromFile("Data\\DISTANCE.TXT","sii\0", &Dist.Name, &Dist.Min, &Dist.Max);
-   Around.Count = Around.File.LoadFromFile("Data\\AROUND.TXT","sis\0", &Around.Name, &Around.ID, &Around.To);
-   for (int i=0; i<Maps.Count; ++i)
-   {
-      if (Maps.Id[i] == ' ')
-         Maps.Out = i;
-      if (Maps.Id[i] == '0')
+	Maps.Count = Maps.File.LoadFromFile("Data\\MAPS.TXT","scssi\0", &Maps.Name, &Maps.Id, &Maps.Where, &Maps.Dp, &Maps.Duration);
+	Dist.Count = Dist.File.LoadFromFile("Data\\DISTANCE.TXT","sii\0", &Dist.Name, &Dist.Min, &Dist.Max);
+	Around.Count = Around.File.LoadFromFile("Data\\AROUND.TXT","sis\0", &Around.Name, &Around.ID, &Around.To);
+	for (int i=0; i<Maps.Count; ++i)
+	{
+		if (Maps.Id[i] == ' ')
+			Maps.Out = i;
+		if (Maps.Id[i] == '0')
 			Maps.Bug = i;
 	}
 	Timing.Count = Timing.File.LoadFromFile("Data\\TIMING.TXT","si\0", &Timing.Text, &Timing.Time);
